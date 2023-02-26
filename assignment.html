@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment</title>
+</head>
+<body>
+  <!-- First App -->
+  <form action="">
+    <h2>First App</h2>
+    <label for="">First Number</label>
+    <input type="number" id="num1">
+    <label for="">Second Number</label>
+    <input type="number" id="num2">
+    <input type="submit" value="Divide">
+    <input type="submit" value="Multiply">
+    <p>The Result is:</p>
+    <p id="result"></p>
+  </form>
+  <hr>
+
+  <!-- Second App -->
+  <form action="">
+    <H2>Second App</H2>
+    <label for="">Temperature:</label>
+    <input type="number" id="deg">
+    <input type="submit" value="From F° to C°">
+    <input type="submit" value="From C° to F°">
+    <p>Your converted Temperature is:</p>
+    <p id="result2"></p>
+  </form>
+  <hr>
+
+  <!-- Third and Fourth App -->
+  <form action="">
+    <h2>Third And Fourth App</h2>
+    <label for="">Put the filename here:</label>
+    <input type="text" id="fileext">
+    <input type="submit" value="Get Extension">
+    <p>Your File Extension is:</p>
+    <p id="result3"></p>
+  </form>
+  <hr>
+
+  <!-- Fifth App -->
+  <form action="">
+    <h2>Fifth App</h2>
+    <label for="">Insert the text you want here:</label>
+    <input type="text" name="" id="txtw">
+    <label for="">How many Characters do you want to cut?</label>
+    <input type="number" id="chrnmb">
+    <input type="submit" value="Get Text">
+    <p>The text cut:</p>
+    <p id="result4"></p>
+  </form>
+  <script>
+    // First App
+    document.querySelector("[value='Divide']").onclick= function (e){
+      e.preventDefault();
+      let x = document.getElementById("num1").value;
+      let y = document.getElementById("num2").value;
+      let z = x/y;
+      document.getElementById("result").innerHTML = z;
+    }
+    document.querySelector("[value='Multiply']").onclick= function (e){
+      e.preventDefault();
+      let x = document.getElementById("num1").value;
+      let y = document.getElementById("num2").value;
+      let z = x*y;
+      document.getElementById("result").innerHTML = z;
+    }
+
+    // Second App
+    document.querySelector("[value='From F° to C°']").onclick= function (e){
+      e.preventDefault();
+      let x = document.getElementById("deg").value;
+      let y = (5/9)*(x-32);
+      document.getElementById("result2").innerHTML = `${x} F° is equal to ${y} C°`;
+    }
+    document.querySelector("[value='From C° to F°']").onclick= function (e){
+      e.preventDefault();
+      let x = document.getElementById("deg").value;
+      let y = (9*x+(32*5))/5
+      document.getElementById("result2").innerHTML = `${x} C° is equal to ${y} F°`;
+    }
+
+    // Third and Fourth App
+    document.querySelector("[value='Get Extension']").onclick= function (e){
+      e.preventDefault();
+      let x = document.getElementById("fileext").value;
+      if (x === ""){
+        document.getElementById("result3").innerHTML= `The Text You Inserted is Blank >:(`
+      }else{
+        let y = x.split("").reverse().slice(0,4).reverse().join("");
+        document.getElementById("result3").innerHTML = y;
+      }
+    }
+
+    // Fifth App
+    document.querySelector("[value='Get Text']").onclick= function (e){
+      e.preventDefault();
+      let x = document.getElementById("txtw").value
+      let y = document.getElementById("chrnmb").value
+      let z = x.split("").slice(0,y).join("")
+      document.getElementById("result4").innerHTML = z
+    }
+  </script>
+</body>
+</html>
